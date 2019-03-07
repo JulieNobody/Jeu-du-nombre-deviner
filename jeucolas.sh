@@ -11,6 +11,9 @@ min=1
 max=100
 number=$[($RANDOM % ($[$max - $min] + 1)) + $min]
 
+#variable nombre d'essai
+essais=1
+
 echo " "
 echo "     $number"
 echo " "
@@ -25,7 +28,7 @@ echo "~~ Vous allez devoir deviner ce nombre en un minimum de tentative ~~"
 echo "~~ Pour chaque tentative, je vous dirais si vous êtes trop haut ou trop bas ~~"
 echo " "
 echo " "
-
+echo " ~ essai numero $essais ~ "
 read -p "à vous de jouer : " reponse
 
 
@@ -33,18 +36,29 @@ while [ $reponse -ne $number ]
 do
 			if [ $reponse -lt $number ]
 		then
+			echo " "
 			echo "trop bas"
+			essais=`expr $essais + 1` 
+			echo " ~ essai numero $essais ~ "
 			read -p "essaye encore : " reponse
 		else
+			echo " "
 			echo "trop haut"
+			essais=`expr $essais + 1` 
+			echo " ~ essai numero $essais ~ "
 			read -p "essaye encore : " reponse
 		fi
 done
 
 if [ $reponse -eq $number ]
 then
-	echo "gagné"
+	echo " "
+	echo "*** Félicitation ! vous avez gagné ! ***"
+	echo "*** Votre score : $essais essais ***"
+	echo " "
 fi
+
+
 
 
 
