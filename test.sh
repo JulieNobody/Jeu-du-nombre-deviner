@@ -1,5 +1,50 @@
 #!/bin/bash
 
+
+
+read -p "va y : " i
+
+if [ "$(echo $i | grep "^[ [:digit:] ]*$")" ] 
+then 
+	while [ $i -ne 10 ]
+	do 
+		if [ "$(echo $i | grep "^[ [:digit:] ]*$")" ] 
+		then 
+			if [ $i -lt 10 ]
+			then
+				if [ "$(echo $i | grep "^[ [:digit:] ]*$")" ] 
+				then 
+					read -p "c'est +, essaye encore : " i
+				else
+					echo "perdu !"
+					echo "ce que tu as sasis n'est pas un nombre"
+				fi 				
+			else
+				if [ "$(echo $i | grep "^[ [:digit:] ]*$")" ] 
+				then 
+					read -p "c'est -,essaye encore : " i
+				else
+					echo "perdu !"
+					echo "ce que tu as sasis n'est pas un nombre"
+				fi 	
+			fi
+		else
+			echo "perdu !"
+			echo "ce que tu as sasis n'est pas un nombre"
+		fi 
+	done
+
+else
+	echo "perdu !"
+	echo "ce que tu as sasis n'est pas un nombre"
+fi 
+
+
+
+
+
+
+
 	#Test sur l'incrementation 
 
 #i=0
@@ -26,7 +71,7 @@
 #echo $I 
 
 	#Test sur variable numerique
-read -p "bla : " var
+#read -p "bla : " var
 
 #if  [ $(echo $i | grep -v [a-Z] | wc -l) -gt 1 ]
 #then
@@ -42,12 +87,12 @@ read -p "bla : " var
 #  echo "pas bon"
 #fi
 
-
-if [ "$(echo $var | grep "^[ [:digit:] ]*$")" ] 
-then 
-	echo "La chaîne est numérique" 
-else
-	echo "non"
-fi 
+# Test si variable est numerique - OK
+#if [ "$(echo $var | grep "^[ [:digit:] ]*$")" ] 
+#then 
+#	echo "La chaîne est numérique" 
+#else
+#	echo "non"
+#fi 
 
 
