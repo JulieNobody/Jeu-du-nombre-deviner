@@ -1,4 +1,4 @@
-# Projet1
+# Jeu du nombre à deviner
 
 Concept : Jeu dont le but est de découvrir un nombre entre 0 et 100 en moins de coups possible
 OK
